@@ -463,35 +463,80 @@ header {
 /* Clients Section */
 .clients-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
 }
 
 .client-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 30px 20px;
-    display: block;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle glow effect on hover */
+.client-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(225, 48, 108, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.client-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(225, 48, 108, 0.4);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.client-card:hover::before {
+    opacity: 1;
+}
+
+.client-card i {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    z-index: 1;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.client-card:hover i {
+    opacity: 1;
+    transform: scale(1.15);
 }
 
 .client-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+    z-index: 1;
 }
 
 .client-card p {
     color: var(--text-secondary);
-    font-size: 0.85rem;
-    margin-bottom: 16px;
-}
-
-.client-card i {
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    transition: color 0.3s;
-}
-
-.client-card:hover i {
-    color: #E1306C; /* Instagram color */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+    z-index: 1;
 }
 
 /* Contact Section */
