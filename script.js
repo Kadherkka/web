@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = initial ? Math.random() * window.innerHeight : window.innerHeight + 100;
             const speedY = Math.random() * 0.4 + 0.1;
             const speedX = (Math.random() - 0.5) * 0.2;
-            const opacity = Math.random() * 0.15 + 0.05; // 0.05 to 0.20
-            const blur = Math.random() * 4; // depth effect
+            const opacity = Math.random() * 0.4 + 0.3; // 0.30 to 0.70 so colors are vibrant
+            const blur = Math.random() * 2; // reduce blur
             const rotationSpeed = (Math.random() - 0.5);
             
             icon.style.fontSize = `${size}rem`;
